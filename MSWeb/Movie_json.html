@@ -1,0 +1,153 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>영화 박스오피스 순위</title>=
+ <!--       /*
+                window.onload = function() {
+                const myphotos = []; // 이미지 담을 빈 배열 생성
+                let itemlist = data.items;
+
+                for (let index in itemlist) { // for 문 돌면서 빈 배열에 이미지 추가
+                    myphotos.push(itemlist[index].media.m);
+                }
+                document.getElementById("imgs").src = myphotos[0]; // 첫 이미지
+            // onclick 이벤트를 링크(이전, 다음)에 걸어서
+            // 다음을 클릭하면 2.jpg, 다음 클릭 3.jpg, 다음 클릭 4.jpg, 또 클릭하면 1.jpg (순회해야 함)
+            // 이전도 동일
+            // 문제의 요지는 배열과 이벤트
+
+            let index = 0;
+            //이전
+            function prvphoto() {
+                    if (index == 0) { //0번째이면 다시 마지막으로 돌아오기
+                index = myphotos.length;
+                    }
+            document.getElementById("imgs").src = myphotos[--index];  //--index :배열이니까 하나씩 줄어들기
+                }// 이전 함수
+
+            //다음
+            function nextphoto() {
+                    if (++index == myphotos.length) {
+                index = 0;
+                    }
+            document.getElementById("imgs").src = myphotos[index];
+                }// 다음 함수
+
+            prv.addEventListener("click", prvphoto);
+            next.addEventListener("click", nextphoto);
+        }
+         */
+
+        /*        function nodeValfunc(data) {
+                    let arrMovieRank = new Array(); // 영화순위
+                    let arrMovieName = new Array(); // 영화제목
+                    let arrOpenDate = new Array(); // 개봉일
+                    let arrAudiAcc = new Array(); // 누적관객수
+
+                    let rank, name, opendate, total;
+                    const emp = []; // 이미지 담을 빈 배열 생성
+                    let movielist = boxOfficeResult.dailyBoxOfficeList;
+
+
+                    rank = data.boxOfficeResult.dailyBoxOfficeList.getElementsByTagName("rank");
+                    name = data.("movieNm");
+                    opendate = data.getElementsByTagName("openDt");
+                    total = data.getElementsByTagName("audiAcc");
+
+                    for (i = 0; i < title.length; i++) {
+                        arrMovieName[i] = name[i].childNodes[0].nodeValue;
+                        arrOpenDate[i] = opendate[i].childNodes[0].nodeValue;
+                        arrAudiAcc[i] = total[i].childNodes[0].nodeValue;
+                    }
+
+                    let tbody = document.getElementById('table');
+        */
+        /*
+         xhttp.send();
+
+        function nodeValfunc( xml ) { // ( xml ) 객체 넘겨받기
+            let arrTitle = new Array();
+            let arrAuthor = new Array();
+            let arrPrice = new Array();
+
+            let title, author, price;
+            let xmlDoc;
+
+            xmlDoc = xml.responseXML;
+
+            title = xmlDoc.getElementsByTagName("title");
+            author = xmlDoc.getElementsByTagName("author");
+            price = xmlDoc.getElementsByTagName("price");
+
+            for(i=0; i < title.length; i++){
+                arrTitle[i] = title[i].childNodes[0].nodeValue;
+                arrAuthor[i] = author[i].childNodes[0].nodeValue;
+                arrPrice[i] = price[i].childNodes[0].nodeValue;
+            }
+
+            let table = document.getElementById('table');
+         */
+        /*
+        function jsonfunc(data) {
+            let arrMovieRank = new Array();
+            let arrMovieName = new Array();
+            let arrOpenDate = new Array();
+            let arrAudiAcc = new Array();
+
+
+
+            for (i = 0; i < data.length; i++) { // 값 전체 가져오는법
+                arrMovieRank[i] = data[i].rank;
+                arrMovieName[i] = json[i].movieNm;
+                arrOpenDate[i] = json[i].openDt;
+                arrAudiAcc[i] = json[i].arrAudiAcc;
+            }
+
+            let table = document.getElementById('movieList');
+
+            for (i = 0; i < arrMovieRank.length; i++) {
+                let tr = document.createElement("tr");
+
+                let td1 = document.createElement("th");
+                td1.appendChild(document.createTextNode(arrMovieRank[i] + ""));
+
+                let td2 = document.createElement("th");
+                td2.appendChild(document.createTextNode(arrMovieName[i] + ""));
+
+                let td3 = document.createElement("th");
+                td3.appendChild(document.createTextNode(arrOpenDate[i] + ""));
+
+                let td4 = document.createElement("th");
+                td4.appendChild(document.createTextNode(arrAudiAcc[i] + ""));
+
+                tr.appendChild(th1);
+                tr.appendChild(th2);
+                tr.appendChild(th3);
+                tr.appendChild(th4);
+
+
+                table.appendChild(tr);
+                */-->
+
+</head>
+<body>
+    <div class="box">
+        <p class="rank"><b>2022년 1월 1일 영화 순위</b></p>
+        <table id="movieList" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">순위</th>
+                    <th scope="col">영화제목</th>
+                    <th scope="col">개봉일</th>
+                    <th scope="col">누적관객수</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form action="/" id="frm">
+        <fieldset>
+            <legend>주소록</legend>
+            <textarea rows="10" , cols="30" name="txt" id="txt"></textarea>
+            <input type="submit" id="sub" value="전송하기" />
+        </fieldset>
+
+    </form>
+</body>
+    <script>
+        let add = ['아무개', 'email:minzzy524@naver.com'];
+        let frm = document.getElementById('frm');
+
+        function addr_search(event) {
+            console.log(event.type);
+            let textarea = frm.txt;
+            textarea.value = "이름/주소\n";
+            textarea.value += add[0] + "," + add[1] + "\n";
+        }
+        // point 
+        frm.addEventListener('submit', function(event) {
+            // 기본 이벤트 해제
+            event.preventDefault(); // type="submit" 기본기능 해제 // 오류 안남
+            addr_search(event);
+
+        });
+    </script>
+</html>

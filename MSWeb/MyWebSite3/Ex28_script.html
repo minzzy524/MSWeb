@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*
+         유효성 검증 (ID , PWD)
+         검증 누가
+         클라이언트(javascript) : 서버(C# or JAVA)
+
+
+         kosa.co.kr >> 회원가입 >> 회원가입 페이지를 보고 있어요
+
+         1. Client >> 회원가입 데이터 입력 (id ,pwd) >> 서버로 전송 >> 서버가 값을 받아요 >> 검증 >> 결과 >> Client >> 응답
+        ** 2. Client >> 회원가입 데이터 입력 (id ,pwd) >> 전송 >> 검증(javascript) >> 검증 >> 완료 >> 서버로 전송 ....
+         >> Client 할 수 있는 모든 것은 Client에서 한다 ,,,,, 
+
+         */ 
+        function send() {
+            //유효성 검증하고 >> 문제가 없다면 >> 서버로 전송
+            //문제가 발생하면 재입력 요청
+
+            //1. element(요소) 정보를 가지고 와야 한다
+            //let ele = document.forms[0].elements[0].value;
+            //if(ele ...)
+
+            //최종 목적지는 : DOM script >> document.getElementById()
+
+            let inputuserid = document.loginform.txtuserid;
+            //inputuserid == <input type="text"      name="txtuserid" />
+            console.log(inputuserid);
+            console.log(inputuserid.value);
+
+            //DOM  을 사용한다면 (요소 반드시 id 속성을 )
+            let pwd = document.getElementById("txtpassword");
+            console.log(pwd);
+            console.log(pwd.value);
+
+            //개발자 마음
+            //1. 입력유무
+            //2. 입력값이 로직에 부합하는지
+            if (inputuserid.value == "" || !(inputuserid.value.length >= 3 && inputuserid.value.length <= 10)) {
+                alert("다시 입력해");
+                document.loginform.txtuserid.focus();
+                inputuserid.select();
+            } else {
+                alert("검증완료");
+
+                //서버로 전송
+                //action 주소 있는 경우
+               // document.loginform.action = "loginOk.aspx";
+               // document.loginform.submit(); //함수 submit() 함수
+            }
+        }
+    </script>
+</head>
+<body>
+        <form action="" method="get" name="loginform">
+            ID :<input type="text"      name="txtuserid" placeholder="kglim" /><br />
+            PWD:<input type="password"  name="txtpassword" id="txtpassword" /><br />
+            <input type="button" value="전송" onclick="send()" />
+        </form>
+</body>
+</html>

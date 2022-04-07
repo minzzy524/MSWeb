@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            const myphotos = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"];
+            // 이벤트(onclick 이벤트) 링크 (이전, 다음)
+            // 다음을 클릭하면 2.jpg가 보이고 또 다음을 클릭하면 3.jpg, 다음하면 4.jpg에서 또 클릭하면 1.jpg ..... 순환 반복
+            // 이전 클릭할때 반대 순서로 위와 동일하게 순환
+
+            // 이전버튼
+            const prvbtn = document.getElementById("prv");
+            // 다음버튼
+            const nextbtn = document.getElementById("next");
+
+            // 사진 배열 인덱스용 변수
+            let photoindex = 0;
+
+            // img 태그 가져오기
+            const showImage = document.getElementById("imgs");
+
+            // 다음버튼
+            nextbtn.addEventListener("click", function () {
+
+                if (photoindex == myphotos.length - 1) {
+                    photoindex = 0;
+                    showImage.src = myphotos[photoindex];
+                } else {
+                    photoindex++;
+                    showImage.src = myphotos[photoindex];
+                }
+            });
+
+            // 이전버튼
+            prvbtn.addEventListener("click", function () {
+
+                if (photoindex == 0) {
+                    photoindex = myphotos.length - 1;
+                    showImage.src = myphotos[photoindex]
+                } else {
+                    photoindex--;
+                    showImage.src = myphotos[photoindex];
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h3>DOM 슬라이드</h3>
+    <img alt="이미지" src="images/1.jpg" id="imgs" width="200" height="200">
+    <hr>
+    <a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
+</body>
+</html>

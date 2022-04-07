@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            const myphotos = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"];
+            // onclick 이벤트를 링크(이전, 다음)에 걸어서
+            // 다음을 클릭하면 2.jpg, 다음 클릭 3.jpg, 다음 클릭 4.jpg, 또 클릭하면 1.jpg (순회해야 함)
+            // 이전도 동일
+            // 문제의 요지는 배열과 이벤트
+
+            let current = 0;
+            let prv = document.getElementById("prv");
+            let next = document.getElementById("next");
+            let img = document.querySelector("img");
+            function prvphoto() {
+                if (current == 0) {
+                    current = myphotos.length - 1;
+                    img.src = myphotos[current];
+                }
+                else {
+                    current -= 1;
+                    img.src = myphotos[current];
+                }
+            }
+
+            function nextphoto() {
+                if (current == myphotos.length - 1) {
+                    current = 0;
+                    img.src = myphotos[current];
+                }
+                else {
+                    current += 1;
+                    img.src = myphotos[current];
+                }
+            }
+            prv.addEventListener("click", prvphoto);
+            next.addEventListener("click", nextphoto);
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <h3>DOM 슬라이드</h3>
+    <img alt="이미지" src="images/1.jpg" id="imgs" width="200" height="200">
+    <hr>
+    <a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
+</body>
+</html>

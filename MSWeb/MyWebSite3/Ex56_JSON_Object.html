@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*
+
+        설계도(클래스) => 재사용성
+
+        class Product{
+
+                        private String carname="pony";
+                        public Product(){}
+                        public Product(String carname){
+                            this.carname= carname;
+                            }
+                        public void print(){
+                        }
+                    }
+
+
+
+        메모리 load ... (new)
+        Product p = new Product();
+        Product p2 = new Product("pony2");
+
+        p.print();
+        p2.print();
+
+        /////////////////////////////////////////////////////
+
+        javaScript >> 객체지향언어(OOP)
+
+        클래스 정의 3가지 방법
+
+        1. 프로토타입 방식 : 일반적인 클래스 제작 방법 ** 얘는 볼 수 도 있음
+                            인스턴스마다 [공통된 메서드를 공유]해서 사용하는 장점
+                            Jquery 도 prototype 방식으로 설계
+
+        function 클래스이름() { // function Car(){} 첫 글자 대문자
+                                this.프로퍼티1 = 초기값; // 함수 안에서 this Car()
+                                this.프로퍼티2 = 초기값;
+                             }
+
+        클래스이름.prototype.메서드1 = function() {
+        }
+        클래스이름.prototype.메서드2 = function() {
+        }
+
+        var 인스턴스 = new 클래스이름(); // 가능
+
+        var carObj = new Car();
+        var carObj2 = new Car();
+        var carObj3 = new Car(); // 재사용가능
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        2. 함수 방식 : 간단한 클래스 제작 시 사용
+        인스턴스마다 메서드가 독립적으로 만들어지는 단점
+        ** 클래스 : function Car(){ this.name = , this.age=} // this 있으면 클래스
+        ** 함수 : function car(){} // this 없으면 함수
+
+        function 클래스이름() {
+                                this.프로퍼티1 = 초기값;
+                                this.프로퍼티2 = 초기값;
+                                this.메서드1 = function() {
+                                }
+
+                                this.메서드2 = function() {
+                                }
+                             }   
+
+        var 인스턴스 = new 클래스이름();
+        var carObj = new Car();
+        var carObj2 = new Car();
+        var carObj3 = new Car();
+
+        *****************
+
+        3. 리터럴 방식 : (초보자에게도 중요 ^^)
+
+        클래스 만드는 용도는 아니며 주로 여러개의 매개변수를 그룹으로 묶어 함수의 매개변수로 보낼때
+        정의와 함께 인스턴스가 만들어지는 장점이 있음 단 인스턴스는 오직 하나
+  
+
+        *****************
+        
+        4. ECMA6 버전부터 : class 키워드 제공
+        
+        class Person {
+                         constructor(name) {
+                                            this._name = name;
+                                           }
+                         sayHi() {
+                                 console.log(`Hi! ${this._name}`);
+                                 }
+        }
+
+        [ javascript 객체 생성 ]
+
+        1.오브젝트 리터럴 방식 (객체를 만드는 방법): 클래스 생성과 동시에 객체가 만들어 져요(만들어지면서 객체)
+          1.1 리터럴 방식 >> 제일 간단한 방법 > "var obj = {};" //var objarr = [] 배열
+          1.2 JSON 표기 : {} >> JSON: JavaScript Object Notation
+          ex) var myObj = { "name":"John", "age":31, "city":"New York" };
+ 
+        TIP) JSON >> XML (텍스트 기반의 형식화된 문서 제공)
+        XML :이기종간의 데이터 호환 (한 때는 서점 : xml webservice)
+
+        -----------------------------------------
+        다른 이야기 >> JSON
+
+        객체지향언어 장점 : 설계도 (재사용성)
+        *오브젝트 리터럴 방식 : 재사용을 지원하는 않는다
+        *설계도를 생성과 동시에 객체 생성(장점 : 편하고 , 빠르다 )
+        *설계도를 미리 만들어 놓고 재사용하는 방식은 아니다
+        *설계도당 하나의 객체만 생성 사용 (only object) 그 자체가 설계도 이면서 객체
+        
+        // 이렇게 만들어라
+        var product = {}; //Product p = new Product();
+
+        var product2 = {제품명:'사과',년도:'2018',원산지:'대구'};
+
+
+
+        var 인스턴스 ={
+
+                        프로퍼티:초기값,
+                        프로퍼티:초기값,
+                        .....
+                        메서드:function(){},
+                        메서드:function(){}....
+                      }
+
+
+        리터럴 방식 > 선언과 동시에 인스턴스 자동 생성
+        var 인스턴스 = {}
+        특징 : 생성자 존재하지 않는다.
+        프로퍼티와 메서드만 정의 가능
+
+        단점 : 객체 하나 생성(재사용성 없다)
+        접근방법 : 인스턴스이름.자원 >> product2.제품명
+
+*/
+        let product = { 제품명: '사과', 년도: '2000', 원산지: "대구" };
+        /*
+         C# , java
+         class Product(private string 제품명; ...)
+         Product product = new Product();
+         */
+        console.log(product);
+        document.write(product.제품명 + "<br>");
+        document.write(product.년도 + "<br>");
+        document.write(product.원산지 + "<br>");
+        document.write(product.toString() + "<br>");
+
+        let Person = {
+            name: "홍길동",
+            addr: "서울시 강남구 역삼동",
+            eat: function (food) {
+                document.write(this.name, " / " + this.addr, " / " + food + "냠냠")
+            } // 함수를 쓸 수 있긴 하는데 잘 안쓰고, 함수 쓸 때는 this로 접근해라
+        };
+        Person.eat("사과");
+
+        // 속성 제거 기능
+        // Map
+        delete (product.년도);
+        console.log(product);
+
+        // Array for(let index in Array){}
+
+        for (let key in product) { // POINT (객체도 개선된 for문을 사용할 수 있다)
+            console.log("key : " + key);
+            console.log(product[key]); // Map
+        }
+
+        for (let key in Person) {
+            console.log("key : " + key + "=" + Person[key]);
+        }
+
+        // JSON 객체
+        // 외부 API 제공(제공 데이터 : xml or json >> 서울시공공데이터 , 대법원 판례, 날씨 정보)
+        // KEYPOINT : 제공 받은 xml, json 객체를 원하는 데이터만 추출하는 가공을 해서 화면에 출력하게
+        // 반대인 경우 ... REST API 서버가 되어서 데이터를 제공함
+
+        var Member = {}; // 빈 객체
+        Member.name = "hong"; // {name : "hong"};
+        console.log(Member.name);   
+
+        Member.age = 100;
+
+        Member.print = function () {
+            document.write("<br>" + this.name + " / " + this.age + "<br>");
+        }
+
+        Member.print();
+
+        // *** TODAY POINT ***
+        // 객체가 객체를 가질 수 있다. 객체가 배열을 가질 수 있다.
+        // C# class Member(private Car car; List<Car> list;)
+
+        // 객체가 객체를 가질 수 있다. 객체가 배열을 가질 수 있다. >> 연습
+
+        let Grade = {
+            list: {
+                "hong": 80,
+                "kim": 100,
+                "park": 75
+            },
+            show: function () {
+                for (let key in this.list) {
+                    document.write(key + " : " + this.list[key] + "<br>");
+                }
+            }
+        }
+        Grade.show();
+
+        var listobj = Grade.list; // 객체 리턴
+        for (let key in listobj) {
+            document.write(key + " : " + listobj[key] + "<br>");
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*
+         1. 배열     >> [] >> let arr = []; push() , pop() 
+         2. JSON객체 >> {} >> let obj = {}; obj.속성명 
+
+         데이터 복잡
+         객체가 객체, 객체가 배열, 배열이 객체
+         */
+
+        let students = [];
+        students.push({ 이름: "홍길동", 국어: 80, 영어: 60 });
+        students.push({ 이름: "아무개", 국어: 90, 영어: 80 });
+        students.push({ 이름: "이순신", 국어: 100, 영어: 10 });
+
+        //[{},{},{}]
+        for (let index in students) {
+            students[index].getSum = function () { return this.국어 + this.영어; }
+            students[index].getAvg = function () { return this.getSum() / 2; }
+        }
+
+        console.log(students);
+
+        for (let index in students) {
+            console.log(students[index].이름);
+            console.log(students[index].getSum);
+            console.log(students[index].getAvg);
+            
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

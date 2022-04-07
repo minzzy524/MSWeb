@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            
+            const parkinglots = { "resultCode": "0", "resultMsg": "SUCCESS", "numOfRows": 10, "pageNo": 0, "totalCount": 25, "items": [{ "chrstnNm": "수원종합운동장", "useOpenTime": "24시간 이용가능", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 경수대로 893", "location_detail": "북문 지상 주차장", "manage_entrps_nm": "환경부(한국자동차환경협회)", "manage_entrps_telno": "1661-9408", "latitude": "37.299335", "longitude": "127.007841", "chrstn_id": "ME18B403", "charger_id": "ME18B40311", "charger_capacity": "DC콤보(100kW)", "org_id": "ME", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_3_1" }, { "chrstnNm": "수원종합운동장", "useOpenTime": "24시간 이용가능", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 경수대로 893", "location_detail": "북문 지상 주차장", "manage_entrps_nm": "환경부(한국자동차환경협회)", "manage_entrps_telno": "1661-9408", "latitude": "37.299335", "longitude": "127.007841", "chrstn_id": "ME18B403", "charger_id": "ME18B40312", "charger_capacity": "DC콤보(100kW)", "org_id": "ME", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_3_2" }, { "chrstnNm": "수원종합운동장", "useOpenTime": "24시간 이용가능", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 경수대로 893", "location_detail": "북문 지상 주차장", "manage_entrps_nm": "환경부(한국자동차환경협회)", "manage_entrps_telno": "1661-9408", "latitude": "37.299335", "longitude": "127.007841", "chrstn_id": "ME18B403", "charger_id": "ME18B40313", "charger_capacity": "DC콤보(100kW)", "org_id": "ME", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_3_3" }, { "chrstnNm": "수원종합운동장", "useOpenTime": "24시간 이용가능", "user_restrict": "이용자 제한 없음", "charger_status": "3", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 경수대로 893", "location_detail": "북문 지상 주차장", "manage_entrps_nm": "환경부(한국자동차환경협회)", "manage_entrps_telno": "1661-9408", "latitude": "37.299335", "longitude": "127.007841", "chrstn_id": "ME18B403", "charger_id": "ME18B40314", "charger_capacity": "DC콤보(100kW)", "org_id": "ME", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_3_4" }, { "chrstnNm": "경기도교통연수원", "useOpenTime": "24시간 이용가능", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 수일로191번길 6", "location_detail": "지상 주차장", "manage_entrps_nm": "한국전력", "manage_entrps_telno": "1899-2100", "latitude": "37.308416", "longitude": "127.011109", "chrstn_id": "KP004636", "charger_id": "KP00463601", "charger_capacity": "DC콤보(50kW)", "org_id": "KP", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_6_1" }, { "chrstnNm": "경기도교통연수원", "useOpenTime": "24시간 이용가능", "user_restrict": "이용자 제한 없음", "charger_status": "9", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 수일로191번길 6", "location_detail": "지상 주차장", "manage_entrps_nm": "한국전력", "manage_entrps_telno": "1899-2100", "latitude": "37.308416", "longitude": "127.011109", "chrstn_id": "KP004636", "charger_id": "KP00463602", "charger_capacity": "DC콤보(50kW)", "org_id": "KP", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_6_2" }, { "chrstnNm": "수원시상수도사업소", "useOpenTime": "평일 09시~18시 이용가능, 주말/공휴일 이용불가", "user_restrict": "이용자 제한 없음", "charger_status": "9", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 광교산로 119", "location_detail": "지상 주차장", "manage_entrps_nm": "한국전력", "manage_entrps_telno": "1899-2100", "latitude": "37.299958", "longitude": "127.028013", "chrstn_id": "KP004089", "charger_id": "KP00408901", "charger_capacity": "DC콤보(50kW)", "org_id": "KP", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_11_1" }, { "chrstnNm": "한국농어촌공사 경기지역본부", "useOpenTime": "평일 09시~18시 이용가능, 주말/공휴일 이용불가", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 장안로 347", "location_detail": "지상 주차장", "manage_entrps_nm": "한국전력", "manage_entrps_telno": "1899-2100", "latitude": "37.311914", "longitude": "126.986215", "chrstn_id": "KP004637", "charger_id": "KP00463701", "charger_capacity": "DC콤보(100kW)", "org_id": "KP", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_18_1" }, { "chrstnNm": "SK네트웍스 고객만족센터", "useOpenTime": "주중/주말 07:00~22:00", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 경수대로 795", "location_detail": "지상 주차장", "manage_entrps_nm": "evMost", "manage_entrps_telno": "1522-2573", "latitude": "37.292417", "longitude": "127.018541", "chrstn_id": "OB000007", "charger_id": "OB00000701", "charger_capacity": "DC콤보(50kW)", "org_id": "OB", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_63_1" }, { "chrstnNm": "SK네트웍스 고객만족센터", "useOpenTime": "주중/주말 07:00~22:00", "user_restrict": "이용자 제한 없음", "charger_status": "2", "chrstnType": "DC콤보", "rdnmadr": "경기도 수원시 장안구 경수대로 795", "location_detail": "지상 주차장", "manage_entrps_nm": "evMost", "manage_entrps_telno": "1522-2573", "latitude": "37.292417", "longitude": "127.018541", "chrstn_id": "OB000007", "charger_id": "OB00000701", "charger_capacity": "DC콤보(50kW)", "org_id": "OB", "privateCarPark": "O", "referenceDate": "2021-11-30", "sn": "장안구_63_2" }] };
+            console.log(parkinglots);
+
+            let items = parkinglots.items;
+            console.log(items);
+
+            let tbody = document.querySelector("tbody");
+
+
+            for (let index in items) {
+                let tr = document.createElement("tr");
+
+                let item = items[index];
+                let parkinglotInfo = [item.chrstnNm, item.useOpenTime, item.manage_entrps_telno, items[index].rdnmadr];
+                console.log(parkinglotInfo);
+
+                for (let index2 in parkinglotInfo) {
+                    let td = document.createElement("td");
+                    td.innerHTML = parkinglotInfo[index2];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+        }
+    </script>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>운영시간</th>
+                <th>전화번호</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

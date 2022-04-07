@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!--
+       internal (page 내에서 사용 )    
+     -->
+    <style>
+        body {background-color:skyblue; }
+        h3 {color:deeppink;}
+    </style>
+    <!--
+     external 방식 (개발에서 가장 선호 : 모든 페이지 공통 사용 :  유지보수가 편하다)   
+    
+     -->
+    <link rel="stylesheet" href="css/common.css" />
+</head>
+<body>
+    <!--
+
+    Inline - by using the style attribute inside HTML elements
+    Internal - by using a <style> element in the <head> section
+    External - by using a <link> element to link to an external CSS file
+
+    -->
+    <h3>1. inline (연습)</h3>
+    <p style="background-color:tomato">문단태그 입니다</p> 
+    <h3 style="color:green">나는 무슨색일까요 : 안쪽 스타일 우선 적용</h3>
+    <h1>외부 css파일에 대한 적용여부</h1>
+
+    <h3>웹상에서의 절대 경로 , 상대 경로</h3>
+    <img src="images/ProductBest.gif" /><!--Ex03_Css.html 기준으로 상대경로 -->
+    <!--절대경로 기준은 : C:\\Temp\\naver\\color-->
+
+    <!--절대경로 (웹)  권장 -->
+    <img src="https://www.baemin.com/img/img_shoppinglive.png" />
+    <!--
+     이미지 , 파일 을 위한 별도의 서버 구축 : AWS : S3서버   
+    
+     -->
+</body>
+</html>

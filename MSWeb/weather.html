@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>javascript</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    <style>
+        .stretch-card > .card {
+            width: 100%;
+            min-width: 100%
+        }
+
+        body {
+            background-color: #f9f9fa
+        }
+
+        .flex {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto
+        }
+
+        @media (max-width:991.98px) {
+            .padding {
+                padding: 1.5rem
+            }
+        }
+
+        @media (max-width:767.98px) {
+            .padding {
+                padding: 1rem
+            }
+        }
+
+        .padding {
+            padding: 5rem
+        }
+
+        .grid-margin,
+        .purchace-popup > div {
+            margin-bottom: 25px
+        }
+
+        .card {
+            border: 0;
+            border-radius: 2px
+        }
+
+        .card-weather {
+            background: #e1ecff;
+            background-image: linear-gradient(to left bottom, #d6eef6, #dff0fa, #e7f3fc, #eff6fe, #f6f9ff)
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem
+        }
+
+        .card-weather .card-body:first-child {
+            background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;
+            background-size: cover
+        }
+
+        .card .card-body {
+            padding: 1.88rem 1.81rem
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem
+        }
+
+        .card-weather .weather-date-location {
+            padding: 0 0 38px
+        }
+
+        .h3,
+        h3 {
+            font-size: 1.56rem
+        }
+
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500
+        }
+
+        .text-gray,
+        .card-subtitle,
+        .new-accounts ul.chats li.chat-persons a p.joined-date {
+            color: #969696
+        }
+
+        p {
+            font-size: 13px
+        }
+
+        .text-gray,
+        .card-subtitle,
+        .new-accounts ul.chats li.chat-persons a p.joined-date {
+            color: #969696
+        }
+
+        .card-weather .weather-data {
+            padding: 0 0 4.75rem
+        }
+
+        .mr-auto,
+        .mx-auto {
+            margin-right: auto !important
+        }
+
+        .display-3 {
+            font-size: 2.5rem
+        }
+
+        .card-weather .card-body {
+            background: #ffffff
+        }
+
+        .card-weather .weakly-weather {
+            background: #ffffff;
+            overflow-x: auto
+        }
+
+            .card-weather .weakly-weather .weakly-weather-item {
+                flex: 0 0 14.28%;
+                border-right: 1px solid #f2f2f2;
+                padding: 1rem;
+                text-align: center
+            }
+
+        .mb-0,
+        .my-0 {
+            margin-bottom: 0 !important
+        }
+
+        .card-weather .weakly-weather .weakly-weather-item i {
+            font-size: 1.2rem
+        }
+    </style>
+    <script>
+        let data = { "lat": 37.541, "lon": 126.986, "timezone": "Asia/Seoul", "timezone_offset": 32400, "daily": [{ "dt": 1649214000, "sunrise": 1649193043, "sunset": 1649239086, "moonrise": 1649202660, "moonset": 0, "moon_phase": 0.15, "temp": { "day": 15.12, "min": 7.99, "max": 17.36, "night": 12.14, "eve": 16.53, "morn": 7.99 }, "feels_like": { "day": 13.31, "night": 10.14, "eve": 14.76, "morn": 7.99 }, "pressure": 1022, "humidity": 24, "dew_point": -4.69, "wind_speed": 4.6, "wind_deg": 288, "wind_gust": 5.55, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }], "clouds": 8, "pop": 0, "uvi": 6.12 }, { "dt": 1649300400, "sunrise": 1649279354, "sunset": 1649325540, "moonrise": 1649291520, "moonset": 1649257380, "moon_phase": 0.19, "temp": { "day": 14.44, "min": 9.46, "max": 14.76, "night": 9.46, "eve": 11.59, "morn": 10.01 }, "feels_like": { "day": 12.62, "night": 8.87, "eve": 9.8, "morn": 8.19 }, "pressure": 1017, "humidity": 26, "dew_point": -4.87, "wind_speed": 6.31, "wind_deg": 263, "wind_gust": 9.4, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }], "clouds": 1, "pop": 0, "uvi": 6.16 }, { "dt": 1649386800, "sunrise": 1649365666, "sunset": 1649411994, "moonrise": 1649380620, "moonset": 1649347140, "moon_phase": 0.22, "temp": { "day": 16.12, "min": 7.86, "max": 18.55, "night": 13.39, "eve": 16.61, "morn": 7.86 }, "feels_like": { "day": 14.52, "night": 11.83, "eve": 15.06, "morn": 7.86 }, "pressure": 1021, "humidity": 28, "dew_point": -2.48, "wind_speed": 4.29, "wind_deg": 249, "wind_gust": 6.11, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }], "clouds": 3, "pop": 0, "uvi": 6.8 }, { "dt": 1649473200, "sunrise": 1649451979, "sunset": 1649498448, "moonrise": 1649470200, "moonset": 1649436660, "moon_phase": 0.25, "temp": { "day": 18.54, "min": 10.9, "max": 20.16, "night": 16.25, "eve": 18.72, "morn": 10.9 }, "feels_like": { "day": 17.6, "night": 15.13, "eve": 17.69, "morn": 9.25 }, "pressure": 1016, "humidity": 44, "dew_point": 6.03, "wind_speed": 5.2, "wind_deg": 226, "wind_gust": 8.05, "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }], "clouds": 96, "pop": 0.01, "uvi": 6.61 }, { "dt": 1649559600, "sunrise": 1649538291, "sunset": 1649584902, "moonrise": 1649560020, "moonset": 1649525820, "moon_phase": 0.28, "temp": { "day": 20.33, "min": 12.61, "max": 21.48, "night": 17.25, "eve": 19.57, "morn": 12.61 }, "feels_like": { "day": 19.2, "night": 16.47, "eve": 18.65, "morn": 11.47 }, "pressure": 1017, "humidity": 30, "dew_point": 2.25, "wind_speed": 4.99, "wind_deg": 237, "wind_gust": 6.78, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }], "clouds": 0, "pop": 0, "uvi": 6.54 }, { "dt": 1649646000, "sunrise": 1649624605, "sunset": 1649671356, "moonrise": 1649650080, "moonset": 1649614620, "moon_phase": 0.31, "temp": { "day": 21.81, "min": 13.85, "max": 23.63, "night": 17.96, "eve": 20.82, "morn": 13.85 }, "feels_like": { "day": 21.38, "night": 17.87, "eve": 20.58, "morn": 13.09 }, "pressure": 1014, "humidity": 51, "dew_point": 11.12, "wind_speed": 4.91, "wind_deg": 251, "wind_gust": 7.75, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }], "clouds": 1, "pop": 0, "uvi": 7 }, { "dt": 1649732400, "sunrise": 1649710919, "sunset": 1649757810, "moonrise": 1649740260, "moonset": 1649703120, "moon_phase": 0.34, "temp": { "day": 18.03, "min": 13.9, "max": 18.88, "night": 16.95, "eve": 18.88, "morn": 13.9 }, "feels_like": { "day": 17.38, "night": 15.56, "eve": 17.63, "morn": 13.64 }, "pressure": 1014, "humidity": 57, "dew_point": 9.17, "wind_speed": 3.76, "wind_deg": 338, "wind_gust": 6.95, "weather": [{ "id": 500, "main": "Rain", "description": "light rain", "icon": "10d" }], "clouds": 100, "pop": 0.24, "rain": 0.13, "uvi": 7 }, { "dt": 1649818800, "sunrise": 1649797234, "sunset": 1649844264, "moonrise": 1649830500, "moonset": 1649791320, "moon_phase": 0.37, "temp": { "day": 10.75, "min": 9.31, "max": 15.75, "night": 9.31, "eve": 10.7, "morn": 10.58 }, "feels_like": { "day": 9.32, "night": 6.94, "eve": 9.24, "morn": 9.18 }, "pressure": 1018, "humidity": 55, "dew_point": 1.97, "wind_speed": 5.99, "wind_deg": 62, "wind_gust": 10.34, "weather": [{ "id": 500, "main": "Rain", "description": "light rain", "icon": "10d" }], "clouds": 100, "pop": 0.52, "rain": 0.83, "uvi": 7 }] }
+        var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+        window.onload = function () {
+            let days = data.daily;
+            for (let index = 0; index < days.length;index++) {
+            
+                let unixTimestamp
+                let milliseconds = days[index].dt * 1000 // 1575909015000
+
+                let dateObject = new Date(milliseconds)
+                day = week[dateObject.getDay()];
+
+                let minTemp = days[index].temp.min;
+                let maxTemp = days[index].temp.max;
+
+                if (index == 0) {
+
+                    document.getElementsByClassName("weather-date-location")[0].childNodes[1].innerHTML = week[dateObject.getDay()];
+                    
+                    document.getElementsByClassName("mr-auto")[0].childNodes[3].innerHTML = days[index].weather[0].main;
+
+                    
+                    
+                    
+                    document.getElementsByClassName("mr-auto")[0].childNodes[1].innerHTML = Math.round((minTemp + maxTemp) / 2)+ "<span class='symbol'>°</span>C";
+                    console.log(document.getElementsByClassName("mr-auto")[0].childNodes);
+               
+
+
+                }
+                else {
+                    document.getElementsByClassName("weakly-weather-item")[index - 1].childNodes[1].innerHTML = week[dateObject.getDay()];
+                    console.log(document.getElementsByClassName("weakly-weather-item")[index - 1].childNodes)
+                    //document.getElementsByClassName("weakly-weather-item")[index - 1].childNodes[3].innerHTML = days[index].weather[0].main;;
+                    document.getElementsByClassName("weakly-weather-item")[index - 1].childNodes[5].innerHTML = Math.round((minTemp + maxTemp) / 2) + "<span class='symbol'>°</span>C";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-lg-8 grid-margin stretch-card">
+                    <!--weather card-->
+                    <div class="card card-weather">
+                        <div class="card-body">
+                            <div class="weather-date-location">
+                                <h3>Friday</h3>
+                                <p class="text-gray"> <span class="weather-date">6 April, 2019</span> <span class="weather-location">Seoul, ROK</span> </p>
+                            </div>
+                            <div class="weather-data d-flex">
+                                <div class="mr-auto">
+                                    <h4 class="display-3">32 <span class="symbol">°</span>C</h4>
+                                    <p> Cloudy </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="d-flex weakly-weather">
+                                <div class="weakly-weather-item">
+                                    <p class="mb-0"> Sun </p> <i class="mdi mdi-weather-cloudy"></i>
+                                    <p class="mb-0"> 30° </p>
+                                </div>
+                                <div class="weakly-weather-item">
+                                    <p class="mb-1"> Mon </p> <i class="mdi mdi-weather-hail"></i>
+                                    <p class="mb-0"> 31° </p>
+                                </div>
+                                <div class="weakly-weather-item">
+                                    <p class="mb-1"> Tue </p> <i class="mdi mdi-weather-partlycloudy"></i>
+                                    <p class="mb-0"> 28° </p>
+                                </div>
+                                <div class="weakly-weather-item">
+                                    <p class="mb-1"> Wed </p> <i class="mdi mdi-weather-pouring"></i>
+                                    <p class="mb-0"> 30° </p>
+                                </div>
+                                <div class="weakly-weather-item">
+                                    <p class="mb-1"> Thu </p> <i class="mdi mdi-weather-pouring"></i>
+                                    <p class="mb-0"> 29° </p>
+                                </div>
+                                <div class="weakly-weather-item">
+                                    <p class="mb-1"> Fri </p> <i class="mdi mdi-weather-snowy-rainy"></i>
+                                    <p class="mb-0"> 31° </p>
+                                </div>
+                                <div class="weakly-weather-item">
+                                    <p class="mb-1"> Sat </p> <i class="mdi mdi-weather-snowy"></i>
+                                    <p class="mb-0"> 32° </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--weather card ends-->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

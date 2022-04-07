@@ -1,0 +1,3 @@
+﻿function excall() {
+    alert('external');
+}

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //function Call() { }
+
+
+        //익명함수 : 나만 쓰고 버리겠다 
+        //function() { }
+
+        //callback 함수 : 프로그램 논리(흐름)에 의해서 자동 호출되는 함수 >> 1초마다 >> 재호출 >> 익명함수
+        //콜백
+        //setInterval (요자리 , 1000)  >> 요자리  오는 함수는 콜백함수
+        let myTime = window.setInterval(function () {
+            let d = new Date();
+            let t = d.toLocaleTimeString();
+            document.getElementById("time").innerHTML = t;
+
+        }, 1000);
+
+        //myTime === setInterval
+        function myTimeStop() {
+            window.clearInterval(myTime);
+        }
+    </script>
+</head>
+<body>
+    <p id="time" ></p>
+    <button onclick="myTimeStop()">stop Time</button>
+</body>
+</html>

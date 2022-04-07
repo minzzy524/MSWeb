@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #add-btn {
+            padding: 5px 10px;
+            border: 0;
+            background: #f80;
+            color: white;
+            border-radius: 5px;
+        }
+
+        ul {
+            padding: 0;
+            list-style-position: inside;
+        }
+
+        li {
+            border-bottom: 1px solid #999;
+            padding: 5px 0;
+        }
+
+        .active {
+            background: #abc;
+        }
+        /* step3: 목록 클릭 스타일 */
+    </style>
+</head>
+<body>
+    <h1 id="title">to do list</h1>
+    <button id="add-btn">add-list</button>
+    <ul id="list">
+        <li>title_1</li>
+        <li>title_2</li>
+        <li>title_3</li>
+        <li>title_4</li>
+    </ul>
+</body>
+    <script>
+        const name = document.getElementById("title");
+        const list = document.getElementById("list");
+        const li = document.getElementsByName("li");
+        const addbtn = document.getElementById("add-btn");
+
+        function activeItem(event) { // 이벤트 객체를 받아서 한번에 모아서 처리
+            console.log(event.target); // 어떤 놈인지 잘 파악해라
+            console.log(event.currentTarget);
+
+            if (event.target.nodeName == "LI") {
+                title.innerHTML = event.target.innerText;
+
+                for (let i = 0; i < event.target.parentNode.children.length; i++) {
+                    event.target.parentNode.children[i].removeAttribute('class');
+                }
+
+                // 스타일 적용하겠다
+                event.target.setAttribute("class", "active");
+            }
+
+            for (let i = 0; i < event.target.parentNode.children.length; i++) {
+
+            }
+
+            
+        }
+        list.addEventListener("click", activeItem);
+
+        // 목록 추가
+        addbtn.addEventListener('click', function () {
+            let txt = prompt('제목입력'); // prompt : 내장함수
+            if (txt != null) {
+                list.innerHTML += "<li>" + txt + "</li>";
+            }
+        })
+    </script>
+</html>

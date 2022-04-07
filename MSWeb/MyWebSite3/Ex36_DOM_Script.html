@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*
+         * 
+         https://www.w3schools.com/js/js_htmldom_document.asp
+         * 
+         When a web page is loaded, the browser creates a Document Object Model of the page.
+
+        JavaScript can change all the HTML elements in the page
+        JavaScript can change all the HTML attributes in the page
+        JavaScript can change all the CSS styles in the page
+        JavaScript can remove existing HTML elements and attributes
+        JavaScript can add new HTML elements and attributes
+        JavaScript can react to all existing HTML events in the page
+        JavaScript can create new HTML events in the page
+
+
+        Finding HTML Elements
+        Method	                                    Description
+        document.getElementById(id)                 	Find an element by element id
+        document.getElementsByTagName(name)         	Find elements by tag name    >> Array
+        document.getElementsByClassName(name)	         Find elements by class name
+
+
+        Changing HTML Elements
+        Property	                                    Description
+        element.innerHTML =  new html content	        Change the inner HTML of an element
+        element.attribute = new value	                Change the attribute value of an HTML element
+        element.style.property = new style	            Change the style of an HTML element
+        Method	Description
+        element.setAttribute(attribute, value)	        Change the attribute value of an HTML element
+        
+        
+        Adding and Deleting Elements
+        Method	                                    Description
+        document.createElement(element)	            Create an HTML element
+        document.removeChild(element)	                Remove an HTML element
+        document.appendChild(element)	                Add an HTML element
+        document.replaceChild(new, old)	            Replace an HTML element
+        document.write(text)	                         Write into the HTML output stream
+        
+        Adding Events Handlers
+        Method	Description
+        document.getElementById(id).onclick = function(){code}	Adding event handler code to an onclick event
+        
+        */ 
+
+    </script>
+</head>
+<body>
+    <div id="demo">첫번째</div> <!--계층 트리 형태에서 먼저 검색되는 것이 의미가 있다 -->
+    <div id="demo">두번째</div>
+</body>
+<script>
+    let ele_dev = document.getElementById("demo");
+    console.log(ele_dev);
+    ele_dev.innerHTML = "<b>Hello World</b>";
+
+</script>
+
+
+</html>

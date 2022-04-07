@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        //javascript  해석 >> 웹 브라우져(해석 + 라인단위 read  결과 출력) + 다양한 객체 제공(내장 객체)
+        //window 객체 (내장객체)
+        window.document.write("방가<br>");
+
+        //window객체는 생략
+        document.write("window 객체는 생략 <br>");
+
+        //console  
+        console.log("디버깅 , 결과 미리보기 , 오류메시지 확인");
+        console.log(10 + 10);
+
+        document.write("<b> hello world </b>");
+
+        //타입
+        //var , let , const
+
+
+        var num; //타입이 정해지지 않아요 (유연성)  >> 정수 , 문자 , 날짜 타입 ...
+        let num2;
+
+        console.log(num);  //undefined  아직 타입이 정해지지 않았어 
+        num = 100; //타입이 설정 숫자 (내부적으로  number)
+        console.log("num : " + num);
+        console.log(typeof (num));
+
+
+        //POINT javascript 는 순차적으로 실행된다 
+        //var ele = window.document.forms[0].elements[0];
+        //console.log(ele)
+        //Uncaught TypeError: Cannot read properties of undefined (reading 'elements')
+
+        //순서대로 라인단위 해서 .....
+        //바로 실행하지 않는 방법 .....' 함수는 실행되는 것이 아니고 등록만 ,,,, 내가 그의 이름을 불러 주었을때
+        function data() {
+            var ele = window.document.forms[0].elements[0];
+            console.log(ele);
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="get" name="myform">
+        <input type="text"      name="userid" value="hong" /><br />
+        <input type="password"  name="pwd" value="1004" /><br />
+        <input type="submit"   value="전송" /><br />
+    </form>
+    <script>
+         var ele = window.document.forms[0].elements[0];  //실행되는 시점에 form이 존재
+         console.log(ele)
+         console.log(ele.value);
+         console.log(ele.value.length);
+
+        var value = window.document.myform.userid.value;
+        console.log("타입 : " + typeof (value));  // string
+
+        //함수 호출
+        //data();
+    </script>
+</body>
+</html>

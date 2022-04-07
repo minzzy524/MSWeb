@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+</body>
+    <script>
+        // http://cafe.naver.com/eount/580
+        // 일반함수
+        // function foo(){}
+
+        // 익명함수 (재사용 안하고, 1회성)
+        let foo = function () { console.log("foo"); }
+        foo();
+
+        // ES6 (함수의 줄임 표현) => 과제 (조별, api) 코드의 50% 줄임표현 사용해라(each, map)
+
+        // 매개 변수가 없는 경우
+        let bar = () => console.log("bar");
+        bar();
+
+        // 매개변수가 1개 있는 경우 : ()안에 넣거나 또는 생략해도 된다
+        let foo2 = function (x) { return x; }
+        let var2 = x => x;
+
+        let value = var2(100);
+        console.log(value);
+
+        let hello;
+        // hello = (var) => "hello" + val;
+        hello = val => "hello" + val;
+
+        document.getElementById("demo").innerHTML = hello("방가방가");
+
+        // 매개변수가 2개 이상인 경우
+        // let foo3 = (a,b) => {return a+b;}
+        let foo3 = (a, b) => a + b;
+        let v2 = foo3(10, 30);
+        let foo4 = (a, b) => { let c = 100; return a + b + c; } // 이런 경우에는 중괄호 블록 필요하다
+
+        // 객체 반환(json)
+        let foo5 = () => ({ a: 1, b: 2, c: 3 }); // 예외적인 경우 ({json}) 형태
+        let v3 = foo5();
+        console.log(v3);
+
+        // 즉시 실행 함수
+        // function call() {} >> 이벤트 발생 했을 때 자동 호출되거나
+        // call() >> 직접 호출하는 것
+        (
+            function () {
+                console.log("즉시 실행 함수");
+            }()
+        );
+
+        // 즉시 실행합수를 화살표 표현식으로 바꾼다면?
+        (
+            // () => { console.log("즉시 실행 함수"); }
+            (x) => x
+        )();
+
+        // Array 객체가 가지고 있는 다양한 함수
+        // https://www.w3schools.com/jsref/jsref_obj_array.asp
+
+        /*
+         암기해야 할 내용들
+         1. for(let i =0; i <10, i++){}
+         2. for(let index in Array){Array[index]} // 인덱스를 통해 찾는다
+         3. json for {a:1, b:2, c:3}
+            for (let key in jsonobj){ key 값 뽑을 수 있고, jsonobj[key] 하면 value값 뽑을 수 있다}
+         4. 추가적으로
+            Array.isArray()
+            Array.forEach(function(){}) >> 중요 >> jquery의 .each() 와 동일함
+            Array.map()
+         
+         이 중에 하나라도 모르면 안된다
+         */
+
+        function myfunc() {
+            let fruits = ['A', 'B', 'C', 'D'];
+            let x = document.getElementById("demo2");
+            x.innerHTML = Array.isArray(fruits); // 배열 맞니? true or false
+        }
+        myfunc();
+
+        let txt = "";
+        let numbers = [45, 4, 9, 16, 25];
+        //numbers.forEach(function (value.index.array) { }); // 콜백 함수(특정 논리에 의해서 계속 호출됨)
+
+        // callback 먼저 선언
+        function myfunc2(value, index, array) {
+            console.log(value + " / " + index + " / " + array);
+        }
+        numbers.forEach(myfunc2);
+
+        /*
+         45 / 0 / 45,4,9,16,25(배열 전체)
+         4  / 1 / 45,4,9,16,25
+         9  / 2 / 45,4,9,16,25
+         16 / 3 / 45,4,9,16,25
+         25 / 4 / 45,4,9,16,25
+         */
+
+        // 기존에 있는 자원을 조작해서 다시 새로운 배열을 리턴받는 경우 
+        // (ex.기존 배열에서 1씩 더한 값을 구하고 싶을 때 )
+        function myFunc3(value, index, array) { // foreEach 나 map은 3개의 파라미터를 받을 수 있다
+            return value * 2;
+        }
+        let numbermap = numbers.map(myFunc3)
+        console.log(numbermap);
+        /*
+         [90, 8, 18, 32, 50]
+            0: 90
+            1: 8
+            2: 18
+            3: 32
+            4: 50
+         */
+
+        let evens = [2, 4, 6, 8];
+        // let odds = evens.map(function (value) { return value + 1}); // 화살표로 하면?
+        let odds = evens.map(value => value + 1); // 줄임표현
+        console.log(odds);
+        /*
+         [3, 5, 7, 9]
+            0: 3
+            1: 5
+            2: 7
+            3: 9
+         */
+
+        let nums = evens.map((value, index, array) => value + index); // 화살표 표현식
+        console.log(nums);
+        /*
+        [2, 5, 8, 11]
+            0: 2
+            1: 5
+            2: 8
+            3: 11
+         */
+
+        /*
+        let arr = [];
+        evens.forEach(function (value, index, array) {
+            if (value % 2 === 0) {
+                arr.push(value);
+            }
+        });
+        */
+
+        // 화살표 표현식으로 하면?
+        let arr = [];
+        evens.forEach((value, index, array) => {
+            if (value % 2 === 0) {
+                arr.push(value);
+            }
+        });
+        console.log(arr);
+        // [2, 4, 6, 8]
+
+
+
+    </script>
+</html>

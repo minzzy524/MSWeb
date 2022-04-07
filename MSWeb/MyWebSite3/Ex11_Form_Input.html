@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Form 안에 input 태그</title>
+</head>
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>Text:Password</legend>
+            Text : <input type="text" name="userid" id="userid" /><br />
+            Password: <input type="password" name="pwd" maxlength="5" />
+            <hr />
+
+            Text : <input type="text" name="userid" id="userid" maxlength="10" size="100" value="기본값" />
+
+            <hr />
+            readonly (읽기전용 : 서버로 데이터 전송 가능)
+            <input type="text" name="userid" value="hong" readonly="readonly" />
+            <br />
+            disabled (비활성화 : 서버로 데이터 전송 불가)
+            <input type="text" name="userid" value="kim" disabled="disabled" />
+        </fieldset>
+        <fieldset>
+            <legend>체크박스(다중선택)</legend>
+            농구 : <input type="checkbox" name="sports_1" value="A" checked="checked" />
+            야구 : <input type="checkbox" name="sports_2" value="B" />
+            축구 : <input type="checkbox" name="sports_3" value="C" />
+        </fieldset>
+        <!--
+            get 방식 전송
+            register.aspx?sports_1=A&sports_2=B&sports_3=C
+
+            //자바 ...
+            String data = request.getParameter("sports_1")
+            String data2 = request.getParameter("sports_2")
+            String data3 = request.getParameter("sports_3")
+
+            //C# (ASP.NET)
+            string data  = Request.QueryString["sports_1"];
+            string data2  = Request.QueryString["sports_2"];
+            string data3  = Request.QueryString["sports_3"];
+
+            QuestString[] - Get 방식으로 넘겨져 온 쿼리스트링 값을 받고자 할 때 사용한다.
+            Form[] - Post 방식으로 넘겨져 온 값을 받고자 할 대 사용한다.
+            Params[] - Get/Post 방식 모두를 받고자 할 때 사용한다.
+
+
+
+
+
+
+
+              get 방식 전송
+              register.aspx?sports=A&sports=B&sports=C  >> 배열
+
+                농구 : <input type="checkbox" name="sports" value="A" checked="checked" />
+                야구 : <input type="checkbox" name="sports" value="B" />
+                축구 : <input type="checkbox" name="sports" value="C" />
+
+
+
+        -->
+        <fieldset>
+            <legend>select 태그 (단일 선택(년 , 월 , 일))</legend>
+            <select name="year">
+                <option value="2021">2021년</option>
+                <option value="2022" selected>2022년</option>
+                <option value="2023">2023년</option>
+            </select>
+            <!--
+        register.aspx?year=2022
+
+        -->
+            <!--접근성 문제 사용되지 않아요-->
+            <select name="year" multiple>
+                <option value="2021">2021년</option>
+                <option value="2022" selected>2022년</option>
+                <option value="2023">2023년</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>라디오 버튼(단일 선택) : name 속성이 같으면 하나의 그룹</legend>
+            남:<input type="radio" name="gender" value="남" /><br />
+            여:<input type="radio" name="gender" value="여" checked /><br />
+            <hr />
+            대:<input type="radio" name="book" value="1" checked /><br />
+            중:<input type="radio" name="book" value="2" /><br />
+            소:<input type="radio" name="book" value="3" /><br />
+        </fieldset>
+        <fieldset>
+            <legend>기타 등등</legend>
+            1. 화면에 출력이 안되요 (소스는 있어요)
+            <input type="hidden" value="1000" name="data" />
+            <hr />
+            2. 파일 업로드 (클라이언트 파일 선택 가능)
+            <input type="file" name="imgupload" />
+            <hr />
+            3. 게시판 글쓰기 (다중라인 :  여러줄) : 초기화면 (rows , cols 몇줄에 몇칸)<br />
+            <textarea rows="10" cols="50"></textarea>
+            <hr />
+            4. 각종 버튼들
+            <input type="button" value="나 클릭" onclick="alert('넘 쉽다')" />
+            <br />
+               <!--
+                기본적으로 전송 기능을 포함
+                type=submit      form action 주소 출발
+                type="image"     form action 주소 출발
+                
+                초기화 (입력값을 초기화)
+                type="reset"   
+                -->
+        </fieldset>
+    </form>
+</body>
+</html>

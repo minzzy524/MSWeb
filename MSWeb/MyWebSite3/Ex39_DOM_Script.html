@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        .democlass {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function () { // body 안에 모든 요소가 DOM 객체로 메모리에 올라간 후에 실행할거야 (</body> 뒤에 script 쓰는거랑 같은 원리)
+            // document.getElementsByTagName("h1")[0].removeAttribute("class");
+            // document.getElementsByTagName("h1") << 이거 자체가 Array니까 [0][1][2] ... 이런 식으로 인덱스 접근이 가능하다
+
+            /*
+            let arr = document.getElementsByTagName("h1");
+            console.log(arr);
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].removeAttribute('class'); // <h1>Hello world_1</h1> 이런 식으로 class의 css 요소만 제거된다
+            }
+            */
+
+            /*
+             * 삭제 문제 발생
+            let arr = document.getElementsByTagName("h1");
+            for (let index in arr) {
+                //console.log(index);
+                document.getElementById("div").removeChild(arr[index]); // 오류
+                // Uncaught TypeError: Failed to execute 'removeChild' on 'Node': parameter 1 is not of type 'Node'.at window.onload
+            }
+            */
+            // 삭제 순서 : 0 -> 1 -> 2 순서로 삭제
+            //[0][1][2]
+            //[Hello world_1][Hello world_2][Hello world_3]
+
+            //[0][1]
+            //[Hello world_2][Hello world_3]
+
+            //[0]
+            //[Hello world_3]
+
+            // 해결하는 코드
+            /*
+            let arr = document.getElementsByTagName("h1");
+            for (let index in arr) {
+                if (arr.length > 0) {
+                    console.log(index + " / " + arr.length + " / " + (arr.length - 1));
+                    document.getElementById("div").removeChild(arr[arr.length - 1]);
+
+                }
+            }
+            */
+
+            let arr = document.getElementsByTagName("h1");
+            const len = arr.length;
+            // console.log(len); // 3
+            for (let i = 0; i < len; i++) {
+                arr[arr.length - 1].remove(); // 자기 자신 삭제하는 것 (상위 요소가 필요 없다)
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div">
+        <h1 class="democlass">Hello world_1</h1>
+        <h1 class="democlass">Hello world_2</h1>
+        <h1 class="democlass">Hello world_3</h1>
+    </div>
+</body>
+<!--    <script>
+
+    </script>-->
+</html>

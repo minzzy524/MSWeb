@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>내장 객체(제공을 받아요)</title>
+    <script>
+        /*
+           javascript 다양한 객체 : new 통해서 , 또는 new 이미 실행해서 그냥 객체만 쓰는 
+           ex) Date() , Array()
+         */
+        let today = new Date();
+        document.write(today + "<br>");
+        document.write(today.getFullYear() + "<br>");
+        document.write(today.getMonth() +1 + "<br>");
+        document.write(today.getDate() + "<br>");
+        document.write(today.getHours() + "<br>");
+        document.write(today.getMinutes() + "<br>");
+        document.write(today.getSeconds() + "<br>");
+      
+        document.write(Math.random() + "<br>");  //0<= 범위 < 1
+
+        document.write(parseInt(Math.random() * 45) + 1 + "<br>"); //1~45까지 정수
+
+        document.write(Math.round(3.5678) + "<br>");
+        document.write(Math.max(3, 8, 9, 56, 7, 23, 100) + "<br>");
+
+        //POINT 문자열 관련 함수
+        let str = "ABCDEF";
+
+        with (document) {
+            write(str + "<br>");
+            write(str.length + '<br>');
+            write(str.charAt(2) + "<br>");
+            write(str.indexOf("D") + "<br>");
+
+
+            let str2 = str.replace("E", "ZZZZZZ");
+            write(str2 + "<br>");
+
+            //let str = "ABCDEF";
+            write(str.substring(2, 4) + "<br>");  //CD
+            write(str.substring(1, 1) + "<br>");  //
+            write(str.substring(1, 2) + "<br>");  //B 
+            write(str.substring(1) + "<br>");     //BCDEF
+
+            //https://www.w3schools.com/jsref/jsref_substring.asp
+
+            let strarr = "A B C D";
+            let arr = strarr.split(" ");
+            write(arr); //A,B,C,D
+
+            //암기******************
+            //javascript : for(let  index  in arr){}   주의사항 return arr 배열이면 index 값
+            write("<br>");
+            for (let index in arr) {
+               // write(index + '<br>');  첨자값
+                write(arr[index] + '<br>');
+            }
+        }
+
+       
+     
+    </script>
+</head>
+<body>
+   
+   
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            let btnobj = document.getElementById("btnGetData");
+            // 이벤트도 동적으로 처리해라
+            // <input type="... onclick= ""> : 좋은 방법이 아니다(협업, 유지보수 힘들다)
+            btnobj.onclick = function () { // 객체.이벤트 = 익명함수 function(){}
+                let txtmsg = document.getElementById("txt") // 웬만하면 input 태그에는 id 값 부여해라
+                let str = "";
+                str +=  "ID : " + txtmsg.getAttribute("type"); // text
+                str +=  "\n value :" + txtmsg.value; // hello
+                str += "\n value :" + txtmsg.getAttribute("value"); // hello
+                str += "\n length :" + txtmsg.value.length;
+
+                console.log(str);
+            }
+            document.getElementById("btnCreate").onclick = function () {
+                let txtname = document.createElement("input");
+                // <input>
+                txtname.setAttribute("type", "text");
+                txtname.setAttribute("id", "txtbox");
+                txtname.setAttribute("value", "홍길동");
+
+                document.body.appendChild(txtname);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id =" txtmessage" value="hello" />
+    <input type="button" value="getInfo" id="btnGetData" />
+    <hr />
+    <input type="button" value="동적생성" id="btnCreate" />
+</body>
+</html>

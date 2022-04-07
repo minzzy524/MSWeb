@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!--회원가입 , 로그인 , 게시판 글쓰기 사용되는 태그-->
+    <h3>로그인</h3>
+    <form action="" method="post">
+        ID :<input type="text" name="id" /><br />
+        PWD:<input type="password" namne="pwd" /><br />
+        <input type="submit" value="인증하기" />
+        <input type="reset" value="취소" />
+    </form>
+    <!--
+             form 전송을 담당하는 태그 (클라이언트가 입력한 데이터 + 다양한 정보 ) 가지고 서버로 가는 역할
+
+             form 전송 수단 (운송)
+             1. 배타고 가기
+             2. 비행기 타기
+
+            action="" >> 목적지 주소  >> JAVA (loginok.jsp or loginok.do)   >> C#(login.aspx ...Web API)
+            method="" >> get >> 배를 타고    >> http://192.168.0.12:8090/loginok.aspx?id=kglim&pwd=1004
+                      >> post>> 비행기 타고  >> http://192.168.0.12:8090/loginok.aspx >> http 프로토콜에 숨겨서 ..
+            form action="목적지" 로 가는 모든 사람은 비행기 타고 갑니다
+            get 방식은 반드시 사용 (어떤 상황에서 ) >> form 태그를 사용하지 않고  데이터를 서버로 전송하고 싶을 때
+            >>게시판 글번호 를 가지고 서버로 .....
+            <a href="boardcontent.aspx?num=100&category=board">1번글 클릭</a>  간단하게 사용가능
+
+            request 객체  , response  객체 존재 ... 활용해서 데이터 처리
+
+            action="" 주소를 출발을 지시하는 선장
+
+            1. input type="submit"  >> action="" >>출발
+            2. input type="image"   >> 내부적으로 전송기능 >> submit
+            3. input type="button"  >> 이벤트 핸들러 구현
+               >> javascript 이벤트 , 핸들러 통해서 구현 ....
+              function sub(){  document.form,submit();  }
+
+            Get , Post 장단점
+            [GET]
+            URL에 전송 데이터가 모두 노출되기 때문에 보안에 문제가 있으며 전송할 수 있는 데이터의 한계가 있다. (최대 255자).
+
+            [POST] 
+            URL에 전송 데이터가 모두 노출되지 않지만 GET에 비해 속도가 느리다.
+
+         -->
+</body>
+</html>

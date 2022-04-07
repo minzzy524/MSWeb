@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <ul id="mylist"><li>coffee</li><li>tea</li><li>milk</li></ul>
+    <button onclick="myFunc()">클릭1</button>
+    <button onclick="myFunc2()">클릭2</button>
+
+
+</body>
+    <script>
+        function myFunc() {
+            let list = document.getElementById("mylist"); // 가져오면 찍어봐 어떤 요소를 가져오는지
+            console.log(list); // <li>coffee</li><li>tea</li><li>milk</li></ul>
+            list.removeChild(list.childNodes[0]); // 동적 배열처럼 지워지면 공간 치고 올라감
+
+            // childNodes[0], childNodes[1]
+            // 하위요소 (태그 배열) : select >> option 들 ,  ul > li 들  , ol > li 들 
+
+            /*
+             <ul>
+                <li><li> [0]
+                <li><li> [1] 삭제하면
+                <li><li> [2]
+             </ul>
+
+             <ul>
+                <li><li> [0]
+                <li><li> [2] <- 빈 공간 메꾸고 인덱스 [1]로 바뀜
+             </ul>
+             */
+        }
+
+        function myFunc2() {
+            let textnode = document.createTextNode("water");
+            //<ul id="mylist"><li>coffee</li><li>tea</li><li>milk</li></ul>
+            //<ul id="mylist"><li>water</li><li>tea</li><li>milk</li></ul> 결과
+            let item = document.getElementById("mylist").childNodes[0];
+            console.log(item); //<li>coffee</li>
+
+            // replace
+            console.log(item.childNodes[0]); //coffee <- li 태그 아래 컨텐츠도 child로 본다
+            item.replaceChild(textnode, item.childNodes[0])
+
+        }
+    </script>
+</html>

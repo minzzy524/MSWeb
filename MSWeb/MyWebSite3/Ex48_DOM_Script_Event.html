@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        /*
+        try{
+            // 예외발생 >> 예외 객체가 [자동으로 new >> 그 객체의 주소]를 catch
+        }catch(Exception e){
+            // 문제 확인
+        }
+            
+        javascript >> 사건이 발생(클릭,마우스오버 등) >> 내부적으로 객체 생성됨 >> 이벤트 객체
+        >> 객체 안에 다양한 정보(누가 사건을 일으켰는지, 사건의 주체, 어떤 영향을 받았는지)
+
+        이벤트 객체는 window 객체 안에 
+        >> window.event.메서드
+        >> window.event.속성
+
+        https://blog.sonim1.com/152?category=642975
+
+         */
+        window.onload = function () { // body안의 내용이 DOM 객체 형태로 브라우저 메모리에 올려져 있다는 보장
+            let btn = document.getElementById("mybtn");
+            btn.onclick = function (e) { // 이벤트 객체가 자동 생성된다 >> 생성된 객체의 주소가 e 라는 변수에 들어감
+                console.log(e.type); // 이벤트 종류 알 수 있음(click, mouseover, double click...)
+                console.log(e.target); // <span></span> -> currentTarget보다 작은 단위
+                console.log(e.currentTarget); // <button id="mybtn"><span>눌러봐</span></button>
+                console.log(e.x);
+                console.log(e.y);
+            }
+            let btn2 = document.getElementById("mybtn2");
+            let handler = function (event) { // event 객체 주소를 받을 거예요
+                switch (event.type) {
+                    case "click": alert("클릭");
+                        break;
+                    case "mouseover": event.target.style.backgroundColor = "red";
+                        break;
+                    case "mouseout": event.target.style.backgroundColor = "";
+                        break;
+                }
+            }
+
+            btn2.onclick = handler;
+            btn2.onmouseover = handler;
+            btn2.onmouseout = handler;
+
+            //btn2.onclick = function () { };
+            //btn2.onmouseover = function () { };
+            //btn2.onmouseout = function () { };
+        }
+
+
+    </script>
+</head>
+<body>
+    <button id="mybtn"><span>눌러봐</span></button>
+    <br />
+    <button id="mybtn2">눌러봐2</button>
+</body>
+</html>

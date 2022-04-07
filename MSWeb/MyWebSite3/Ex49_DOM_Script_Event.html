@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #myDiv1, #myDiv2 {
+            background-color: gold;
+            padding: 50px;
+        }
+
+        #myP1, #myP2 {
+            background-color: white;
+            font-size: 20px;
+            border: 1px solid;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript addEventListener()</h2>
+
+    <div id="myDiv1">
+        <h2>Bubbling:</h2>
+        <p id="myP1">Click me!</p>
+    </div><br>
+
+    <div id="myDiv2">
+        <h2>Capturing:</h2>
+        <p id="myP2">Click me!</p>
+    </div>s
+</body>
+    <script>
+        document.getElementById("myP1").addEventListener("click", function () {
+            alert("click white elements!");
+        }, false); // 디폴트는 버블링(false)
+
+        document.getElementById("myDiv1").addEventListener("click", function () {
+            alert("click gold elements!");
+        }, false); // 디폴트는 버블링(false)
+
+        document.getElementById("myP2").addEventListener("click", function () {
+            alert("click white Capturing elements!");
+        }, true); // 디폴트는 버블링(false) >> 캡쳐링 하고 싶으면 옵션을 true로 바꿔준다
+
+        document.getElementById("myDiv2").addEventListener("click", function () {
+            alert("click gold  Capturing elements!");
+        }, true); // 디폴트는 버블링(false)  >> 캡쳐링 하고 싶으면 옵션을 true로 바꿔준다
+    </script>
+</html>

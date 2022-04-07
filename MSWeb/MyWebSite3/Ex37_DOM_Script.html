@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*
+         omload 이벤트가 발생하는 시점 : body 태그 안에 모든 요소가 웹 브라우저 DOM 로딩되고 나서
+         
+         function loadCall(){}
+         1. body onload="loadCall()" : 권장하지 않는다 >> 디자인과 협업이 불가능(유지보수 힘들다)
+         2. window.onload = loadCall() .. (0) >> 권장하는 방법
+
+            loadCall() 다른 곳에서 재사용 안할 거예요... load에서만 한번만 쓰고 버릴건데? >> 함수 이름 가질 필요 있을까?
+            일회성을 쓰려면? >> [익명] >> 재사용 불가
+   
+         */
+
+        window.onload = function () { // callback 함수(로딩되고 난 후에 자동호출) >> 온로드에서만 사용하고 끝나니 이름 없는 익명함수(재사용불가)
+            // 보장 : body 안에 모든 요소는 DOM 객체 메모리에 존재한다
+            let out = "";
+            out += "<ul>";
+                out += "<li>javascript</li>";
+                out += "<li>jquery</li>";
+                out += "<li>vue</li>";
+            out += "</ul>";
+            document.body.innerHTML = out;
+
+            // DOM >> 동적 작업 가능 >> 기존에 없던 (element 등) [추가 , 삭제 , 변경] 할 수 있다
+            let header = document.createElement("h1");
+            //<h1></h1>
+
+            let textnode = document.createTextNode("hello");
+            //hello
+
+            header.appendChild(textnode);
+            //<h1>hello</h1>
+            document.body.appendChild(header);
+
+            // img 태그를 동적으로 생성하고 src 속성 추가 body 안에 자식 요소로 append
+            let img = document.createElement("img"); // <img>
+            img.setAttribute("src", "images/search_icon.png");  // <img src= "imgages/search_icon.png">
+            img.setAttribute("width", "100");
+            img.setAttribute("height", "100");
+            document.body.appendChild(img);
+
+        }
+
+        
+
+    </script>
+</head>
+<body>
+    Hello World
+</body>
+</html>

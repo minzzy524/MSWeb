@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function displayDate() {
+            console.log("Call");
+            document.getElementById("demo").innerHTML = new Date();
+        }
+
+        // document.getElementById("mybtn2").onclick = displayDate(); 순서상의 문제
+    </script>
+</head>
+<body>
+    <button id="mybtn" onclick="displayDate()">inline방식 호출</button> <!--inline에선 함수 부를 때 괄호 있다-->
+    <br />
+    <button id="mybtn2">함수 호출</button>
+    <br />
+    <p id="demo"></p>
+</body>
+<script> // *** KEYPOINT ***
+
+    // displayDate(); <- 함수 호출
+    // document.getElementById("mybtn2").onclick = displayDate(); // () 가지고 있으면 함수를 호출해버림(온클릭 이벤트 나타나기 전에)
+    document.getElementById("mybtn2").onclick = displayDate; // 괄호를 빼 버린다!!!!!
+    // 그래서 그냥 습관적으로 window.onload = function (){} 써라
+  
+</script>
+</html>

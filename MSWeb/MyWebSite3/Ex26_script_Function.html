@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        /*
+         C# or Java
+         함수
+         public void print(){}
+         public string print(){return ""}
+         public int print(int num , int num2) {return num + num2} 
+         */
+
+        //javascript : void or return type 은 존재하지 않는다
+        function callConfirm() {  //사용자 정의 함수 <> 내장함수 (웹 브라우져)
+            if (window.confirm("작업내용")) {
+                alert("식제");
+            } else {
+                alert("취소");
+            }
+
+        }
+
+        function showPopup() {
+            window.open("Ex26_popup.html", "zipcode", "width=200,height=200");
+        }
+
+        function myFunc() {
+            let openwindow = window.open("Ex26_popup.html", "zipcode", "width=500,height=200");
+            openwindow.document.write("<p> this is zipcode window</p>");
+
+        }
+
+
+        //public void goUrl(string url){}
+        function goUrlTime(url) {  //함수안에 당신이 쓰고 싶은 parameter 이름 
+            window.setTimeout("location.href='" + url + "'", 3000);
+
+            /*
+               setTimeout 내장함수 
+               3초가 지나면 url로 이동 
+               location.href='www.daum.net'
+             */ 
+        }
+
+        function myCall(i, j, k) {
+            return i + j + k;
+        }
+
+        let result = myCall(10, 20, 30);
+        console.log("result : " + result);
+
+        //**익명함수 (1회성 함수) >> 재사용이 안되요
+        //function 이름() {}
+
+        //let a = function(){}
+        let changeColor = function () {  //changeColor 함수의 주소
+            window.document.bgColor = "silver";
+            window.document.fgColor = "red";
+        }
+    </script>
+</head>
+<body>
+    <h3>내장함수 , 사용자정의 함수</h3>
+    <button onclick="callConfirm()">클릭 사건 발생</button><br />
+    <button onclick="showPopup()">팝업창</button><br />
+    <button onclick="myFunc()">팝업 객체 </button><br />
+    <button onclick="goUrlTime('http://www.daum.net')">3초후 이동</button><br />
+    <button onclick="changeColor()">익명함수 호출</button><br />
+</body>
+</html>

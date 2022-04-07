@@ -1,0 +1,809 @@
+/* COMMON */
+body {
+  height: 3000px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+img {
+  display: block;
+  /* 로고를 글자취급 하지 않고 꽉 차게 표시 */
+}
+
+a {
+  text-decoration: none;
+  /* a 태그 전체 다 데코 사용하지 않음 */
+}
+
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  /* 위아래 값은 없고 좌우는 브라우저가 자동 계산 */
+  position: relative;
+  /* 위치상 부모요소 */
+}
+
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  /*패딩이나 보더 들어가도 박스가 커지지 않도록*/
+  display: block;
+  /* a태그나 span에서 버튼 클래스에서 사용해도 정상적으로 적용되도록 */
+  transition: .4s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  /*투명*/
+  color: #333;
+}
+
+.btn.btn--brown {
+  color: #592818;
+  border-color: #592818;
+}
+
+.btn.btn--brown:hover {
+  color: #FFF;
+  background-color: #592818;
+}
+
+.btn.btn--gold {
+  color: #D9AA8A;
+  border-color: #D9AA8A;
+}
+
+.btn.btn--gold:hover {
+  color: #FFF;
+  background-color: #D9AA8A;
+}
+
+.btn.btn--white {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+
+
+/* header */
+header {
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+  /* header 맨 아래 솔리드 1px 실선 하나 추가*/
+  position: fixed;
+  /*브라우저 뷰포트 기준으로 배치*/
+  width: 100%;
+  top: 0;
+  z-index: 9;
+}
+
+header>.inner {
+  /* width: 1100px; */
+  /*메뉴바를 가운데로 1100px만큼 몰아서 사용하겠다*/
+  height: 120px;
+  /* 헤더의 자식 이너만 높이가 120px입니다 */
+  /* margin: 0 auto;
+  position: relative; */
+  /* 로고가 헤더 영역 가운데에 위치 */
+}
+
+header .logo {
+  height: 75px;
+  /*원래 로고 사이즈*/
+  position: absolute;
+  /* 부모요소 확인 */
+  top: 0;
+  /* 기준 */
+  bottom: 0;
+  /* 기준 */
+  margin: auto;
+  /* 위 아래 기준으로 자동 정렬 , 단 height 값 있어야 함, 
+  width와 left,right 값 있으면 수평도 가능 */
+  /* display: none; */
+}
+
+header .sub-menu {
+  display: flex;
+  position: absolute;
+  /* 부모 요소는 inner */
+  top: 10px;
+  right: 0;
+  /* 홈페이지 우측 상단에 배치하겠다*/
+}
+
+header .sub-menu ul.menu {
+  display: flex;
+  /*메뉴 수평정렬*/
+  font-family: Arial, sans-serif;
+}
+
+header .sub-menu ul.menu li {
+  position: relative;
+  /* 아무 설정 안했을 때 */
+}
+
+header .sub-menu ul.menu li::before {
+  /* 메뉴 사이사이 검은 선*/
+  content: "";
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  /* 부모요소 따라 가겠다*/
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+header .sub-menu ul.menu li:first-child::before {
+  /*sign in 앞에 검은 선은 날리자*/
+  display: none;
+}
+
+header .sub-menu ul.menu li a {
+  font-size: 12px;
+  padding: 11px 16px;
+  display: block;
+  color: #656565;
+}
+
+header .sub-menu ul.menu li a:hover {
+  color: #000;
+}
+
+header .sub-menu .search {
+  height: 34px;
+  position: relative;
+}
+
+header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  /* 내부 여백 */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* w,h 유지하면서 내부여백, 테두리선 추가되도록 */
+  border-radius: 5px;
+  outline: none;
+  /*주변 파란색 테두리 사용하지 않기*/
+  background-color: #fff;
+  /* 검색창 배경색 흰색 */
+  color: #777;
+  font-size: 12px;
+  /*안에 글씨색 회색*/
+  transition: width .4s;
+}
+
+header .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #669900;
+  /*포커스했을 때 테두리 색*/
+}
+
+header .sub-menu .search .material-icons {
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: .4s;
+}
+
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
+  /* 포커스 되면 돋보기 0.4초 지날동안 숨겨줘*/
+}
+
+header .main-menu {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+header .main-menu .item {}
+
+header .main-menu .item .item__name {
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+
+}
+
+header .main-menu .item .item__contents {
+  width: 100%;
+  position: fixed;
+  /*뷰포트 기준*/
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+  /* 마우스 올렸을 때만 나오게 설정 */
+  display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+  height: auto;
+}
+
+header .main-menu .item .item__contents .contents__menu>ul {
+  display: flex;
+  padding: 20px 0;
+
+}
+
+header .main-menu .item .item__contents .contents__menu>ul>li {
+  width: 220px;
+}
+
+header .main-menu .item .item__contents .contents__menu>ul>li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+header .main-menu .item .item__contents .contents__menu>ul>li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__menu>ul>li ul li:hover {
+  color: #669900
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px 0;
+  font-size: 12px;
+  /*글자 내용은 상속되니까 h4 p 다 적용됨*/
+  background-image: url("../images/main_menu_pattern.jpg");
+}
+
+header .main-menu .item .item__contents .contents__texture h4 {
+  color: #999;
+  font-weight: 700;
+}
+
+header .main-menu .item .item__contents .contents__texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+}
+
+header .badges {
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+
+header .badges .badge {
+  border-radius: 10px;
+  overflow: hidden;
+  /*모서리 깎은거 감추기*/
+  margin-bottom: 12px;
+  /*사이 여백 추가*/
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, .15);
+  cursor: pointer;
+}
+
+
+/* VISUAL */
+
+.visual {
+  margin-top: 120px;
+  /* header height가 120px*/
+  background-image: url("../images/visual_bg.jpg");
+  background-position: center;
+
+}
+
+.visual .inner {
+  height: 646px;
+}
+
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+
+.visual .title .btn {
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+}
+
+.visual .fade-in {
+  opacity: 0;
+}
+
+
+/* NOTICE */
+.notice {}
+
+.notice .notice-line {
+  position: relative;
+  /* 내가 기준이다 (부모요소) */
+
+}
+
+.notice .notice-line .bg-left {
+  position: absolute;
+  /* 부모님 따라 갑니다*/
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+}
+
+.notice .notice-line .bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner {
+  height: 62px;
+  /* 이러면 각각 높이 지정 안해줘도 inner만 높이 지정하면 다 같이 상호작용하여 컨트롤 가능*/
+  display: flex;
+
+}
+
+.notice .notice-line .inner__left {
+  width: 60%;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.notice .notice-line .inner__left h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.notice .notice-line .inner__left .swiper-container {
+  height: 62px;
+  flex-grow: 1;
+  /*최대한 늘어나라*/
+}
+
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
+
+.notice .notice-line .inner__left .notice-line__more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  /*수평 가운데*/
+  align-items: center;
+  /*수직 가운데*/
+}
+
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+  color: #fff;
+  font-size: 30px;
+}
+
+.notice .notice-line .inner__right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /*수평의 끝점으로 이동시키겠다(오른쪽 정렬)*/
+  align-items: center;
+
+}
+
+.notice .notice-line .inner__right h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.notice .notice-line .inner__right .toggle-promotion {
+  width: 62px;
+  height: 62px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice .notice-line .inner__right .toggle-promotion .material-icons {
+  font-size: 30px;
+
+}
+
+.notice .promotion {
+  height: 693px;
+  background-color: #f6f5ef;
+  position: relative;
+  transition: height .4s;
+  /* 0.4초에 걸쳐서 높이값 변경 */
+  overflow: hidden;
+  /* 숨기면서 넘치는 내용은 함께 감춰주세요 */
+}
+
+.notice .promotion.hide {
+  height: 0;
+
+}
+
+.notice .promotion .swiper-container {
+  width: calc(819px * 3 + 20px);
+  /* width: calc(100% * - 50px); */
+  height: 553px;
+  text-align: center;
+  font-size: 200px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  /* 절반만큼 위치시키고 */
+  /* margin-left: -1238.5px; -값을 줘서 절반만큼 다시 땡겨오면 정중앙에 위치시킬 수 있다 */
+  margin-left: calc((819px * 3 + 20px) / -2);
+  /* = -1238.5px */
+}
+
+.notice .promotion .swiper-slide {
+  opacity: .5;
+  transition: opacity 1s;
+  position: relative;
+}
+
+.notice .promotion .swiper-slide-active {
+  opacity: 1;
+
+}
+
+.notice .promotion .swiper-slide .btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.notice .promotion .swiper-pagination {
+  bottom: 40px;
+  left: 0;
+  right: 0;
+}
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {
+  background-color: transparent;
+  background-image: url("../images/promotion_slide_pager.png");
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  outline: none;
+}
+
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
+  margin-right: 0px;
+  /* 가장 마지막은 여백 필요 없음*/
+}
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");
+}
+
+.notice .promotion .swiper-prev,
+.notice .promotion .swiper-next {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 300px;
+  /* 부모 요소 기준으로 위에서 300px 위치에 배치*/
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  /*화살표 아이콘 가운데로*/
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.notice .promotion .swiper-prev {
+  left: 50%;
+  margin-left: -480px;
+}
+
+.notice .promotion .swiper-next {
+  right: 50%;
+  margin-right: -480px;
+}
+
+.notice .promotion .swiper-prev:hover,
+.notice .promotion .swiper-next:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* REWARDS */
+.rewards {
+  position: relative;
+}
+
+.rewards .bg-left {
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rewards .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.rewards .inner {
+  background-image: url("../images/rewards.jpg");
+  height: 241px;
+}
+
+.rewards .btn-group {
+  position: absolute;
+  bottom: 24px;
+  right: 0;
+  width: 250px;
+  /* 버튼 크기를 하나당 130px로 정해놔서 한 줄에 두개 쓰려면 아래에서 버튼 크기 조절해야 함 */
+  display: flex;
+  /* 수평으로 쌓아라 */
+  flex-wrap: wrap;
+  /* 수평으로 쌓되 250px 넘어갈 거 같으면 줄 바꿈 허용 해줄게*/
+
+}
+
+.rewards .btn-group .btn.sign-up {
+  margin-right: 10px;
+}
+
+.rewards .btn-group .btn.sign-in {
+  width: 110px;
+}
+
+.rewards .btn-group .btn.gift {
+  margin-top: 10px;
+  flex-grow: 1;
+  /*최대한의 넓이 사용하기 위해 늘어날 수 있게 해줄게*/
+}
+
+/* YOUTUBE VIDEO */
+.youtube {
+ position: relative;
+ height: 700px;
+ background-color: #333;
+ overflow: hidden;
+}
+
+.youtube .youtube__area {
+  width: 1920px;
+  background-color: orange;
+  position: absolute;
+  left: 50%; /*화면기준으로 50% 지점에 배치했음*/
+  margin-left: calc(1920px / -2); /*가운데로 배치*/
+  top: 50%;
+  margin-top: calc(1920px * 9 / 16 / -2);
+}
+
+.youtube .youtube__area::before { /*css요소를 html에 추가하지 않고 여기서 끝내려고*/
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%; /*유튜브는 16:9 -> 56.25%*/
+}
+
+.youtube .youtube__cover {
+  background-image: url("../images/video_cover_pattern.png");
+  background-color: rgba(0, 0, 0, .3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#player { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.youtube .inner {
+  height: 700px;
+}
+
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.youtube .floating2 {
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+
+
+/* SEASON PRODUCT */
+.season-product{
+  background-image: url("../images/season_product_bg.jpg");
+
+}
+
+.season-product .inner{
+  height: 400px;
+}
+
+.season-product .floating3 {
+  position: absolute;
+  top: -200px;
+  right: 0;
+}
+
+.season-product .text-group{
+  position: absolute;
+  top: 110px;
+  right: 100px;
+}
+
+.season-product .text-group .title{
+  margin-bottom: 10px;
+
+}
+.season-product .text-group .description{
+  margin-bottom: 15px;
+}
+.season-product .text-group .more{
+  
+}
+
+/* RESERVE COFFEE */
+.reserve-coffee {
+  background-image: url("../images/reserve_bg.jpg");
+}
+
+.reserve-coffee .inner {
+  height: 400px;
+}
+
+.reserve-coffee .reserve-logo {
+  position: absolute;
+  top: 110px;
+  left: 0;
+}
+
+.reserve-coffee .text-group {
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+
+.reserve-coffee .product {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* PICK YOUR FAVORITE */
+.pick-your-favorite {
+  background-image: url("../images/favorite_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /*화면 스크롤 되어도 같이 움직이지 않고 고정*/
+  background-size: cover; /*이미지를 배경의 더 큰 사이즈에 맞춰서 출력함*/
+}
+
+.pick-your-favorite .inner{
+  padding: 110px 0;
+}
+
+.pick-your-favorite .text-group{
+  margin-left: 100px;
+  width: 362px;
+  display: flex; /*수평정렬*/
+  flex-wrap: wrap; /*공간부족해서 내용넘치면 줄바꿈*/
+  justify-content: flex-end; /*우측정렬*/  
+}
+
+.pick-your-favorite .text-group .title{
+  margin-bottom: 40px;
+}
+
+.pick-your-favorite .text-group .description{
+  margin-bottom: 40px;
+}

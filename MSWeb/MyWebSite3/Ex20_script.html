@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>javascript</title>
+    <script type="text/javascript">
+        /*
+          javascript : 언어 > web > 해석 실행 > 웹 브라우져 (파서 : 해석기 : 엔진) > 라인 단위 (순서) 실행
+          javascript : 객체지향언어 > class 개념 > 상속 , 다형성 , 재사용성 ... 
+
+          javascript 사용
+          1. html 의  content, attribute 변경 , 삭제 , 추가 [동적] 으로
+          2. css  속성 변경 , 삭제 , 추가 [동적]으로
+          3. 유효성 검증 (id 입력 , 주민번호 ... 데이터 숫자 ,, 검증)
+          4. 동적인 웹 구성 (눈이와요 , 음악이 흘러요 ...)
+          5. 전 세계적으로 1위 
+           - 모든 개발 회사 , 모든 개발자 관심
+           - javascript > 효율적으로 > 코드량 줄이고 > 많이 쓰는 것 재사용 > lib or FrameWork 
+           - 300줄의 코드 구현 >> 10줄 줄이면 어떨까 ...
+           - jquery.js (안에 코드는 javascript) >>  많이 사용되는 것은 함수로 >> 생산성 극대화 
+           - angular.js (MVC) , react.js , vue.js ... 100여가지 .... (javascript 로 만들었어요)
+           - Framework : 생산성 , 유지보수 >> 반면 >> 단점 >> 어느날 사라질 수 있다 (버전업 (x))
+          6. 개발자 (web) 을 할려면 (front(client web ) , back(서버에서 동작 가능 ..Local 동작) ) 
+          
+          7. javascript가 웹 브라우져 없이 마치 C# , Java 로컬에서 실행가능하다면 ..
+          8. 브라우져가 가지고 있는 실행엔진 ... Local로  (Chrome V8 엔진) >> Local javascript 런타임 엔진 ..
+          
+          9. Node.js (Back 단)  Node.js®는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임입니다.
+          -Back 단 작업 대체 하기는 ..... > 서브 > 채팅서버 , 보조 서버 > npm
+          npm 은 자바스크립트 프로그래밍 언어를 위한 패키지 관리자이다. 
+          자바스크립트 런타임 환경 Node.js의 기본 패키지 관리자이다. 
+          명령 줄 클라이언트, 그리고 공개 패키지와 지불 방식의 개인 패키지의 온라인 데이터베이스로 이루어져 있다
+          
+          Yarn은 npm(패키지 관리자)의 대안으로 속도, 일관성, 안정성 및 보안을 제공하는 
+          Node.js JavaScript 런타임 환경을 위해 Facebook에서 2016년에 개발한 소프트웨어 패키징 시스템입니다.
+
+          NuGet은 마이크로소프트에서 비주얼 스튜디오에서 개발 확장으로 공개한 무료 오픈 소스 패키지 관리자 프로그램이다
+
+          10. javascript 문법 (  javascript 는 java 아무런 관계가 없다  )  >> script  문법이 java와 거의 일치
+          10.1 대소문자 엄격하게 구분
+          10.2 종결자 ;
+          10.3 타입 (var , let , const) : let i ="A"; let s ="AAA"; const NUM=3.14;  유연성 ... 타입을 먼저 정하지 않아요
+          그러면 숫자 , 문자열 , 날짜 라는 형식은 언제 가집니까 (값을 받는 시점에) 
+           ex) var v;   v = 10 (값이 할당된 시점에 타입 설정  정수(number))
+           
+          10.4 변수 , 연산자 , 제어문 등등 다가지고 있습니다
+          10.5 사용법 (css 사용법과 동일)
+          -in-line   (태그 안쪽에 : <p onclick="<script>...."></p>)
+          -internal  (page 안에서 일반적으로 <head><script>....</head>)
+          -external  (외부 파일 " common.js) > Link 방식 (유지보수 , 재사용) 
+
+
+         */
+        function call() {  // C# public void call(){}
+            alert("internal");
+        }
+
+    </script>
+    <script type="text/javascript"  src="js/common.js"></script>
+</head>
+<body>
+    <h3>in-line</h3>
+    <input type="button" value="inline" onclick="alert('hello')" />
+
+    <h3>internal</h3>
+    <input type="button" value="inline" onclick="call()" />
+
+    <h3>in-line</h3>
+    <input type="button" value="inline" onclick="excall()" />
+</body>
+</html>

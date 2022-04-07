@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        let str = "10+20+30";
+        document.write(str + "<br>");
+
+        //1. eval()  문자형숫자 -> 숫자
+        //문자형 수식을 계산식으로 .... > "10+20+30"  >  10+20+30 > 계산
+        //"10+20+30A" > error
+        document.write("eval() : " + eval(str) + "<br>");
+
+        //2. isNaN > Not a Number  > 너 숫자 아니니 > true(숫자아니예요) > false(숫자)
+        document.write(isNaN("12345") + "<br>"); //false 숫자
+        document.write(isNaN("12345A") + "<br>"); //true
+        document.write(isNaN("대한민국") + "<br>"); //true 
+        document.write(isNaN('12345') + "<br>"); //false 숫자
+
+        //다양한 문자열 관련 함수
+        //https://www.w3schools.com/js/js_string_methods.asp
+
+        //숫자 관련 함수
+        //https://www.w3schools.com/js/js_number_methods.asp
+        //Number()	        Returns a number, converted from its argument.
+        //parseFloat()	    Parses its argument and returns a floating point number
+        //parseInt()	        Parses its argument and returns an integer
+
+        let i = "100";
+        let j = "200";
+        document.write("결합 : " + (i + j));
+        document.write("<br> 숫자 변환 : " + (Number(i) + Number(j)));
+
+        /*
+         Event	                Description
+        onchange	                An HTML element has been changed
+        onclick	                The user clicks an HTML element
+        onmouseover	            The user moves the mouse over an HTML element
+        onmouseout	            The user moves the mouse away from an HTML element
+        onkeydown	                The user pushes a keyboard key
+        onload	                The browser has finished loading the page  (KEY POINT)
+         
+        onload 
+        >>http://www.naver.com/index.html  >> body 안에 있는 모든 요소가 웹 브라우져 메모리에 로딩되고 나 후에
+        [자동으로 호출] 되는 이벤트  onload  finished loading the page
+
+         onblur   >> 포커스 요소를 떠날때
+         onfocus  >> 포커스 요소에 들어올때
+
+         */
+
+        function bodyload() { //핸들러 함수 
+            console.log("load ...")
+            //보장 받는다 ..
+            //*****body안에 있는 모든 요소는 메모리에 있다 (가지고 놀 수 있다)
+            let data = document.myform.money.value;
+            console.log(isNaN(data));
+        }
+
+        function focusFunc() {
+            document.getElementById("myinput").style.background = "gold";
+        }
+        function blurFunc() {
+            document.getElementById("myinput").style.background = "white";
+        }
+
+        function selectTag() {
+            let val = document.myform.sel.value;
+            alert(val);
+        }
+
+        function changeColor(obj) {
+                //C# : this 
+                //javascript : this (요소자신) ^^*******************
+            console.log(obj);
+            obj.style.backgroundColor = "gold";
+        }
+
+        function changeColor2(obj) {
+            //C# : this 
+            //javascript : this (요소자신) ^^*******************
+            console.log(obj);
+            obj.style.backgroundColor = "white";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <form action="#" name="myform">
+        <input type="text" id="myinput" name="myinput" onfocus="focusFunc()" onblur="blurFunc()" />
+        <br />
+        <select name="sel" onchange="selectTag()">
+            <option value="A">AA</option>
+            <option value="B">BB</option>
+            <option value="C">CC</option>
+            <option value="D">DD</option>
+        </select>
+        <hr />
+        <input type="text"  onmouseover="changeColor(this)"  onmouseout="changeColor2(this)" />
+        <br />
+        <input type="text" onkeypress="alert('안되')" />
+        <br />
+        <input type="text" value="1000" name="money" />
+      
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+

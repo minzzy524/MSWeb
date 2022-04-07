@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        let myObj = { "name": "john", "age": 30, "city": "seoul" };
+        console.log(myObj);
+
+        // json 가공
+        // login.aspx?name=john&age=30&city=seoul // get방식으로
+
+        // [객체 데이터] => [문자열 데이터]
+        // JSON.stringify() : 서버에 문자형태로 보낼 수 있게 바꿔주는 내장함수
+        let stringobj = JSON.stringify(myObj) // *** POINT ***
+        console.log(stringobj); // { name: "john", age: 30, city: "seoul" }
+        console.log(typeof(stringobj)); // string
+
+        // [문자열 데이터] => [객체 데이터] (단, 조건 : 문자열 형식)
+        let myObj2 = '{ "name": "john", "age": 30, "city": "seoul" }';
+        console.log(typeof (myObj2)); // string
+        let myjson = JSON.parse(myObj2); // *** POINT ***
+        console.log(myjson); // { name: "john", age: 30, city: "seoul" }
+        console.log(typeof (myjson)); // string
+
+        // POINT
+        console.log(myjson.name); // 객체.속성명
+        console.log(myjson["name"]); // 객체["속성명"]
+
+        /*
+         확장자
+         index.html , index.html   특수하게 MS > index.chtml
+         css >> common.css
+         js  >> common.js
+         json >> common.json >> MIME >> application/json
+         */
+
+        let Cars = {
+            "name" : "john",
+            "age" : 30,
+            "cars": [
+                            {"name": "Ford", "model": ["Fiesta","Focus", "Mustang"]},
+                            { "name": "BMW", "model": ["320", "x3", "x5"] },
+                            { "name": "Fiat", "model": ["500", "panda"] }
+                    ]
+        }
+
+        // 차량이름 >> 모델명 추출
+        // Ford - Fiesta Focus Mustang
+        // BMW  - 320 x3 x5
+        // Fiat - 500 panda
+
+        // 개선된 for문 (in)
+
+        for (let index in Cars.cars) {
+            console.log(Cars.cars[index].model);
+            document.write("차량이름 : " + Cars.cars[index].name + "<br>");
+
+            for (let i in Cars.cars[index].model) {
+                document.write("  차량 모델 : ");
+                document.write(Cars.cars[index].model[i] + " ");
+            }
+            document.write("<hr>");
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
